@@ -17,19 +17,14 @@ module.exports = function (RED) {
       return
     }
 
-    console.log("=====================")
-    console.log(this.login.id)
-    console.log(this.login.password)
-    console.log(this.login.server)
-
-
     var node = this
 
     node.on('input', function(msg){
       var cl = new fClient(
-        "http://fiware-test.ht.sfc.keio.ac.jp:3005/v1", 
-        "alice-the-admin@test.com", 
-        "nedo2019")
+        this.login.server, 
+        this.login.id, 
+        this.login.password)
+
       cl.getToken(function(err, token){
         node.status({ fill: 'green', shape: 'dot', text: 'request...' })
         if(err){
@@ -53,12 +48,9 @@ module.exports = function (RED) {
         }
       })
     })
-
     node.on('close', function() {
       node.status({})
     })
-
-
   }
   RED.nodes.registerType('GetApps', GetAppsNode,)
 }
