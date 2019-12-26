@@ -2,7 +2,7 @@ const fClient = require('./fiware_client.js')
 
 module.exports = function (RED) {
   'use strict'
-  function AddRoleNode(config) {
+  function DeleteRoleNode(config) {
     RED.nodes.createNode(this, config)
     this.login = RED.nodes.getNode(config.login)
     if (!this.login) {
@@ -30,16 +30,16 @@ module.exports = function (RED) {
           console.log("get token error!", err)
         }else{
           // GET applications
-          cl.addRole(token, config.appid, config.orgid, config.roleid, function(err, success){
+          cl.deleteRole(token, config.appid, config.orgid, config.roleid, function(err, success){
             if(err){
-              console.log("addRole error!", err)
+              console.log("deleteRole error!", err)
               node.status({ fill: 'red', shape: 'dot', text: 'error' })
               msg.payload = err
               node.send(msg)
             }else{
-              // console.log(success)
+              // console.log("success")
               node.status({})
-              msg.payload = success
+              msg.payload = "success"
               node.send(msg)
             }
           })
@@ -50,5 +50,5 @@ module.exports = function (RED) {
       node.status({})
     })
   }
-  RED.nodes.registerType('AddRole', AddRoleNode)
+  RED.nodes.registerType('DeleteRole', DeleteRoleNode)
 }
