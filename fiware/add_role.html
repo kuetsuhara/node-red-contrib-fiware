@@ -1,22 +1,24 @@
 <script type="text/javascript">
-  RED.nodes.registerType('GetRoles',{
+  RED.nodes.registerType('AddRole',{
       category: 'fiware',
-      color: '#ffffff',
+      color: '#b0c4de',
       defaults: {
           name: {value:""},
           login: { type: "fiware-credentials" },
           appid: { value: "" },
+          orgid: { value: "" },
+          roleid: { value: "" },
       },
       inputs:1,
       outputs:1,
       icon: "arrow-in.png",
       label: function() {
-          return this.name||"GetRoles";
+          return this.name||"AddRole";
       }
   });
 </script>
 
-<script type="text/x-red" data-template-name="GetRoles">
+<script type="text/x-red" data-template-name="AddRole">
   <div class="form-row">
     <label for="node-input-login"><i class="fa fa-user"></i> Log in as</label>
     <input type="text" id="node-input-login">
@@ -26,11 +28,20 @@
     <input type="text" id="node-input-appid" placeholder="Application ID">
   </div>
   <div class="form-row">
+    <label for="node-input-orgid"><i class="fa fa-info"></i> OrgID</label>
+    <input type="text" id="node-input-orgid" placeholder="Organization ID">
+  </div>
+  <div class="form-row">
+    <label for="node-input-roleid"><i class="fa fa-info"></i> RoleID</label>
+    <input type="text" id="node-input-roleid" placeholder="Role ID">
+  </div>
+
+  <div class="form-row">
       <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
       <input type="text" id="node-input-name" placeholder="Name">
   </div>
 </script>
 
-<script type="text/x-red" data-help-name="GetRoles">
+<script type="text/x-red" data-help-name="AddRole">
   <p></p>
 </script>

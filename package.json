@@ -20,7 +20,8 @@
       "fiware": "./fiware/fiware.js",
       "getApps": "./fiware/get_apps.js",
       "getOrgs": "./fiware/get_orgs.js",
-      "getRoles": "./fiware/get_roles.js"
+      "getRoles": "./fiware/get_roles.js",
+      "addRole": "./fiware/add_role.js"
     }
   },
   "homepage": "https://github.com/kuetsuhara/node-red-contrib-fiware#readme",
