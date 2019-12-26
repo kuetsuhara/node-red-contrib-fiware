@@ -21,5 +21,8 @@
       "fiware": "./fiware/fiware.js"
     }
   },
-  "homepage": "https://github.com/kuetsuhara/node-red-contrib-fiware#readme"
+  "homepage": "https://github.com/kuetsuhara/node-red-contrib-fiware#readme",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
 }
