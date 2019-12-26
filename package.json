@@ -18,7 +18,10 @@
   "node-red": {
     "nodes": {
       "util": "./fiware/util.js",
-      "fiware": "./fiware/fiware.js"
+      "fiware": "./fiware/fiware.js",
+      "getApps": "./fiware/get_apps.js",
+      "getOrgs": "./fiware/get_orgs.js",
+      "getRoles": "./fiware/get_roles.js"
     }
   },
   "homepage": "https://github.com/kuetsuhara/node-red-contrib-fiware#readme",
