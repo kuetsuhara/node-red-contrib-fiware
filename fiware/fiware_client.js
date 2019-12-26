@@ -169,6 +169,7 @@ module.exports = class FiwareClient {
   }
 }
 
+/*
 const client = require("./fiware_client.js")
 var cl = new client("http://fiware-test.ht.sfc.keio.ac.jp:3005/v1", "alice-the-admin@test.com", "nedo2019")
 cl.getToken(function(err, token){
@@ -222,3 +223,4 @@ cl.getToken(function(err, token){
   }
 })
 
+*/
