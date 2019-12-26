@@ -3,11 +3,12 @@
       category: 'fiware',
       color: '#a6bbcf',
       defaults: {
-          name: {value:""}
+          name: {value:""},
+          login: { type: "fiware-credentials" },
       },
       inputs:1,
       outputs:1,
-      icon: "file.png",
+      icon: "arrow-in.png",
       label: function() {
           return this.name||"GetOrgs";
       }
@@ -15,6 +16,10 @@
 </script>
 
 <script type="text/x-red" data-template-name="GetOrgs">
+  <div class="form-row">
+    <label for="node-input-login"><i class="fa fa-user"></i> Log in as</label>
+    <input type="text" id="node-input-login">
+  </div>
   <div class="form-row">
       <label for="node-input-name"><i class="icon-tag"></i> Name</label>
       <input type="text" id="node-input-name" placeholder="Name">

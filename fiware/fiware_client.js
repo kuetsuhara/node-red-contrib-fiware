@@ -73,7 +73,7 @@ module.exports = class FiwareClient {
     var option = {
       url: url,
       method: 'GET',
-      // json: true,
+      json: true,
       headers: headers,
     }
     request(option, function (error, response, body) {

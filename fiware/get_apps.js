@@ -5,7 +5,6 @@ module.exports = function (RED) {
   function GetAppsNode(config) {
     RED.nodes.createNode(this, config)
     this.login = RED.nodes.getNode(config.login)
-    console.log(this.login)
     if (!this.login) {
       console.log('not login ??')
       node.status({
