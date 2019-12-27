@@ -17,26 +17,26 @@ module.exports = function (RED) {
     }
     var node = this
 
-    node.on('input', function(msg){
+    node.on('input', function (msg) {
       var cl = new fClient(
-        this.login.server, 
-        this.login.id, 
+        this.login.server,
+        this.login.id,
         this.login.password)
 
-      cl.getToken(function(err, token){
+      cl.getToken(function (err, token) {
         node.status({ fill: 'green', shape: 'dot', text: 'request...' })
-        if(err){
+        if (err) {
           node.status({ fill: 'red', shape: 'dot', text: 'error' })
           console.log("get token error!", err)
-        }else{
+        } else {
           // GET applications
-          cl.deleteRole(token, config.appid, config.orgid, config.roleid, function(err, success){
-            if(err){
+          cl.deleteRole(token, config.appid, config.orgid, config.roleid, function (err, success) {
+            if (err) {
               console.log("deleteRole error!", err)
               node.status({ fill: 'red', shape: 'dot', text: 'error' })
               msg.payload = err
               node.send(msg)
-            }else{
+            } else {
               // console.log("success")
               node.status({})
               msg.payload = "success"
@@ -46,7 +46,7 @@ module.exports = function (RED) {
         }
       })
     })
-    node.on('close', function() {
+    node.on('close', function () {
       node.status({})
     })
   }

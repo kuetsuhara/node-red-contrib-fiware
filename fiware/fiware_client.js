@@ -38,13 +38,13 @@ module.exports = class FiwareClient {
       if (response.statusCode == 201) {
         var token = response.headers["x-subject-token"]
         return callback(null, token)
-      }else{
+      } else {
         return callback(null, body)
       }
     })
   }
 
-  getApplicationList(token, callback){
+  getApplicationList(token, callback) {
     var url = this.server + APPLICATIONS_PATH
     var headers = {
       'Content-Type': 'application/json',
@@ -57,14 +57,14 @@ module.exports = class FiwareClient {
       headers: headers,
     }
     request(option, function (error, response, body) {
-      if(error){
+      if (error) {
         return callback(error)
       }
       return callback(null, body)
     })
   }
 
-  getOrganizationList(token, callback){
+  getOrganizationList(token, callback) {
     var url = this.server + ORGANIZATIONS_PATH
     var headers = {
       'Content-Type': 'application/json',
@@ -77,16 +77,15 @@ module.exports = class FiwareClient {
       headers: headers,
     }
     request(option, function (error, response, body) {
-      if(error){
+      if (error) {
         return callback(error)
       }
       return callback(null, body)
     })
   }
 
-  getRoleID(token, appId, callback){
+  getRoleID(token, appId, callback) {
     var url = this.server + APPLICATIONS_PATH + '/' + appId + ROLE_PATH
-    console.log(url)
     var headers = {
       'Content-Type': 'application/json',
       'X-Auth-token': token
@@ -98,16 +97,15 @@ module.exports = class FiwareClient {
       headers: headers,
     }
     request(option, function (error, response, body) {
-      if(error){
+      if (error) {
         return callback(error)
       }
       return callback(null, body)
     })
   }
 
-  addRole(token, appId, orgId, roleId, callback){
+  addRole(token, appId, orgId, roleId, callback) {
     var url = this.server + APPLICATIONS_PATH + '/' + appId + ORGANIZATIONS_PATH + '/' + orgId + ROLE_PATH + '/' + roleId + ADD_ROLE_PATH
-    console.log(url)
     var headers = {
       'Content-Type': 'application/json',
       'X-Auth-token': token
@@ -119,16 +117,15 @@ module.exports = class FiwareClient {
       headers: headers,
     }
     request(option, function (error, response, body) {
-      if(error){
+      if (error) {
         return callback(error)
       }
       return callback(null, body)
     })
   }
 
-  putRole(token, appId, orgId, roleId, callback){
+  putRole(token, appId, orgId, roleId, callback) {
     var url = this.server + APPLICATIONS_PATH + '/' + appId + ORGANIZATIONS_PATH + '/' + orgId + ROLE_PATH + '/' + roleId + ADD_ROLE_PATH
-    console.log(url)
     var headers = {
       'Content-Type': 'application/json',
       'X-Auth-token': token
@@ -140,16 +137,15 @@ module.exports = class FiwareClient {
       headers: headers,
     }
     request(option, function (error, response, body) {
-      if(error){
+      if (error) {
         return callback(error)
       }
       return callback(null, body)
     })
   }
 
-  deleteRole(token, appId, orgId, roleId, callback){
+  deleteRole(token, appId, orgId, roleId, callback) {
     var url = this.server + APPLICATIONS_PATH + '/' + appId + ORGANIZATIONS_PATH + '/' + orgId + ROLE_PATH + '/' + roleId + ADD_ROLE_PATH
-    console.log(url)
     var headers = {
       'Content-Type': 'application/json',
       'X-Auth-token': token
@@ -161,7 +157,7 @@ module.exports = class FiwareClient {
       headers: headers,
     }
     request(option, function (error, response, body) {
-      if(error){
+      if (error) {
         return callback(error)
       }
       return callback(null, body)
@@ -187,7 +183,7 @@ cl.getToken(function(err, token){
         return success
       }
     })
-   
+
     // GET orgs
     cl.getOrganizationList(token, function(err, success){
       if(err){
@@ -212,9 +208,9 @@ cl.getToken(function(err, token){
 
     // Add role
     cl.addRole(
-      token, 
-      'tutorial-dckr-site-0000-xpresswebapp', 
-      '797f7c07-a436-4695-bbea-7a9243fbdce5', 
+      token,
+      'tutorial-dckr-site-0000-xpresswebapp',
+      '797f7c07-a436-4695-bbea-7a9243fbdce5',
       'security-role-0000-0000-000000000000',
       function(err, success){
         console.log(err)
