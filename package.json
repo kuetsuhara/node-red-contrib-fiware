@@ -28,5 +28,11 @@
   "homepage": "https://github.com/kuetsuhara/node-red-contrib-fiware#readme",
   "dependencies": {
     "request": "^2.88.0"
-  }
+  },
+  "keywords": [
+    "node-red",
+    "fiware",
+    "iot",
+    "sensor"
+  ]
 }
