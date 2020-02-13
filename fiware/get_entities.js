@@ -34,10 +34,7 @@ module.exports = function (RED) {
           node.status({ fill: 'red', shape: 'dot', text: 'get token error' })
           console.log("get token error!", err)
         } else {
-          console.log(token)
-          cl.getEntities(token, 'urn:ngsi-ld:Store:001', '', '', function (err, success) {
-            console.log(err)
-            console.log(success)
+          cl.getEntities(token, config.eid, config.option, config.query, function (err, success) {
             if (err) {
               console.log("get entity error!", err)
               node.status({ fill: 'red', shape: 'dot', text: 'get entity error' })
@@ -52,29 +49,6 @@ module.exports = function (RED) {
           })
         }
       })
-
-      // cl.getToken(function (err, token) {
-      //   node.status({ fill: 'green', shape: 'dot', text: 'request...' })
-      //   if (err) {
-      // node.status({ fill: 'red', shape: 'dot', text: 'error' })
-      // console.log("get token error!", err)
-      //   } else {
-      //     // GET applications
-      //     cl.getOrganizationList(token, function (err, success) {
-      //       if (err) {
-      // console.log("get aplist error!", err)
-      // node.status({ fill: 'red', shape: 'dot', text: 'error' })
-      // msg.payload = err
-      // node.send(msg)
-      //       } else {
-      //         // console.log(success)
-      // node.status({})
-      // msg.payload = success
-      // node.send(msg)
-      //       }
-      //     })
-      //   }
-      // })
     })
     node.on('close', function () {
       node.status({})
