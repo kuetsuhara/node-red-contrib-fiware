@@ -47,6 +47,41 @@ module.exports = class FiwareOauthClient {
       }
     })
   }
+
+
+  getEntities(token, id, options, query, callback){
+    var url = this.server + ':' + this.keyrock_port + ENTITIES_PATH + '/' + id + '?options=keyValues'
+
+    var headers = {
+      'X-Auth-Token': token
+    }
+
+    var option = {
+      url: url,
+      method: 'GET',
+      json: true,
+      headers: headers,
+    }
+    
+    console.log(option)
+    request(option, function (error, response, body) {
+      console.log("status code", response.statusCode)
+      if (error) {
+        console.log('error', error)
+        callback(error)
+      }
+      if (response.statusCode == 200) {
+        // return "success", because body is undefined
+        callback(null, body)
+      } else {
+        console.log('body', body)
+        callback(body, null)
+      }
+    })
+
+  }
+
+}
   /*
     createEntities(token, json_data, callback) {
       var url = this.server + ':' + this.keyrock_port + ENTITIES_PATH
@@ -123,20 +158,3 @@ module.exports = class FiwareOauthClient {
   
     }
     */
-}
-
-// const client = require('./fiware_oauth_client.js')
-// var cl = new client('https://202.149.16.157', '54406', '44306', 'usr102@dpc-japan.org', 'uF8JXaNr')
-// cl.getToken(function (err, token) {
-//   if (err) {
-//     console.log('get token error!', err)
-//   } else {
-//     cl.createEntities(token, function (err, success) {
-//       if (err) {
-//         console.log('Error createEntities', err)
-//       } else {
-//         console.log('success!', success)
-//       }
-//     })
-//   }
-// })
