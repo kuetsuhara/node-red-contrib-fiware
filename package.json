@@ -1,5 +1,5 @@
 {
-  "name": "node-red-contrib-fiware",
+  "name": "node-red-contrib-cf-fiware",
   "version": "0.1.0",
   "description": "Node-RED custome node for fiware",
   "main": "index.js",
