@@ -1,0 +1,50 @@
+<script type="text/javascript">
+  RED.nodes.registerType('GetEntities', {
+    category: 'fiware',
+    color: '#ffffff',
+    defaults: {
+      name: { value: "" },
+      eid: { value: "" },
+      option: { value: "" },
+      query: { value: "" },
+      login: { type: "fiware-oauth-credentials" },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "arrow-in.png",
+    label: function () {
+      return this.name || "GetEntities";
+    }
+  });
+</script>
+
+<script type="text/x-red" data-template-name="GetEntities">
+  <div class="form-row">
+    <label for="node-input-login"><i class="fa fa-user"></i> Log in as</label>
+    <input type="text" id="node-input-login">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-eid"><i class="fa fa-tag"></i> Entity ID</label>
+    <input type="text" id="node-input-eid" placeholder="ID">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-option"><i class="fa fa-edit"></i> Option</label>
+    <input type="text" id="node-input-option" placeholder="option">
+  </div>  
+
+  <div class="form-row">
+    <label for="node-input-query"><i class="fa fa-edit"></i> Query</label>
+    <input type="text" id="node-input-query" placeholder="query">
+  </div>  
+
+  <div class="form-row">
+      <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="GetEntities">
+  <p>GetEntities</p>
+</script>

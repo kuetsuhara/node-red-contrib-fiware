@@ -17,10 +17,12 @@
   },
   "node-red": {
     "nodes": {
+      "fiwareOauth": "./fiware/fiware_oauth_credentials.js",
       "fiware": "./fiware/fiware.js",
       "getApps": "./fiware/get_apps.js",
       "getOrgs": "./fiware/get_orgs.js",
       "getRoles": "./fiware/get_roles.js",
+      "getEntities": "./fiware/get_entities.js",
       "addRole": "./fiware/add_role.js",
       "deleteRole": "./fiware/delete_role.js"
     }
