@@ -1,30 +1,26 @@
-const fClient = require('./fiware_client.js')
+const foClient = require('./fiware_oauth_client.js')
 
 module.exports = function (RED) {
   'use strict'
   function GetEntitiesNode(config) {
     RED.nodes.createNode(this, config)
 
-    // this.login = RED.nodes.getNode(config.login)
-    // if (!this.login) {
-    //   console.log('not login ??')
-    //   node.status({
-    //     fill: 'red',
-    //     shape: 'dot',
-    //     text: 'Credential error'
-    //   })
-    //   node.error('No credentials specified')
-    //   return
-    // }
+    this.login = RED.nodes.getNode(config.login)
+    if (!this.login) {
+      console.log('not login ??')
+      node.status({
+        fill: 'red',
+        shape: 'dot',
+        text: 'Credential error'
+      })
+      node.error('No credentials specified')
+      return
+    }
 
     var node = this
 
     node.on('input', function (msg) {
       console.log("input!")
-      // var cl = new fClient(
-      //   this.login.server,
-      //   this.login.id,
-      //   this.login.password)
 
       // cl.getToken(function (err, token) {
       //   node.status({ fill: 'green', shape: 'dot', text: 'request...' })

@@ -17,6 +17,7 @@
   },
   "node-red": {
     "nodes": {
+      "fiwareOauth": "./fiware/fiware_oauth_credentials.js",
       "fiware": "./fiware/fiware.js",
       "getApps": "./fiware/get_apps.js",
       "getOrgs": "./fiware/get_orgs.js",
