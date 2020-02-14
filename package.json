@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-cf-fiware",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Node-RED custome node for fiware",
   "main": "index.js",
   "scripts": {
