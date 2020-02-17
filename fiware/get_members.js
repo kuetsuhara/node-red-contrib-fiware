@@ -32,20 +32,19 @@ module.exports = function (RED) {
           console.log("get token error!", err)
         } else {
           // GET applications
-          console.log("getted token")
-          // cl.getOrganizationList(token, function (err, success) {
-          //   if (err) {
-          //     console.log("get aplist error!", err)
-          //     node.status({ fill: 'red', shape: 'dot', text: 'error' })
-          //     msg.payload = err
-          //     node.send(msg)
-          //   } else {
-          //     // console.log(success)
-          //     node.status({})
-          //     msg.payload = success
-          //     node.send(msg)
-          //   }
-          // })
+          cl.getMembers(token, config.orgid, function (err, success) {
+            if (err) {
+              console.log("get members error!", err)
+              node.status({ fill: 'red', shape: 'dot', text: 'error' })
+              msg.payload = err
+              node.send(msg)
+            } else {
+              // console.log(success)
+              node.status({})
+              msg.payload = success
+              node.send(msg)
+            }
+          })
         }
       })
     })

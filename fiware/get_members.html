@@ -4,6 +4,7 @@
     color: '#ffffff',
     defaults: {
       name: { value: "" },
+      orgid: { value: "" },
       login: { type: "fiware-credentials" },
     },
     inputs: 1,
@@ -21,6 +22,12 @@
     <label for="node-input-login"><i class="fa fa-user"></i> Log in as</label>
     <input type="text" id="node-input-login">
   </div>
+
+  <div class="form-row">
+    <label for="node-input-orgid"><i class="fa fa-tag"></i> Org ID</label>
+    <input type="text" id="node-input-orgid" placeholder="Org ID">
+  </div>
+
   <div class="form-row">
       <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
       <input type="text" id="node-input-name" placeholder="Name">

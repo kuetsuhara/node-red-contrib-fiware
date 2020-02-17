@@ -84,6 +84,28 @@ module.exports = class FiwareClient {
     })
   }
 
+  getMembers(token, orgId, callback) {
+    var url = this.server + ORGANIZATIONS_PATH + '/' + orgId + '/users'
+    var headers = {
+      'Content-Type': 'application/json',
+      'X-Auth-token': token
+    }
+    var option = {
+      url: url,
+      method: 'GET',
+      json: true,
+      headers: headers,
+    }
+
+    request(option, function (error, response, body) {
+      if (error) {
+        return callback(error)
+      }
+      return callback(null, body)
+    })
+
+  }
+
   getRoleID(token, appId, callback) {
     var url = this.server + APPLICATIONS_PATH + '/' + appId + ROLE_PATH
     var headers = {
