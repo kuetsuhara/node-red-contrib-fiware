@@ -24,6 +24,7 @@
       "getMembers": "./fiware/get_members.js",
       "getRoles": "./fiware/get_roles.js",
       "getEntities": "./fiware/get_entities.js",
+      "patchUserEnabled": "./fiware/patch_user_enabled.js",
       "addRole": "./fiware/add_role.js",
       "deleteRole": "./fiware/delete_role.js"
     }

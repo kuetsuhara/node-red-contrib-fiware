@@ -1,0 +1,42 @@
+<script type="text/javascript">
+  RED.nodes.registerType('PatchUserEnabled', {
+    category: 'fiware',
+    color: '#ffffff',
+    defaults: {
+      name: { value: "" },
+      orgid: { value: "" },
+      login: { type: "fiware-credentials" },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "arrow-in.png",
+    label: function () {
+      return this.name || "patch user enabled";
+    },
+    paletteLabel: "patch user enabled"
+  });
+</script>
+
+<script type="text/x-red" data-template-name="PatchUserEnabled">
+  <div class="form-row">
+    <label for="node-input-login"><i class="fa fa-user"></i> Log in as</label>
+    <input type="text" id="node-input-login">
+  </div>
+
+  <div class="form-row">
+      <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="PatchUserEnabled">
+  <p>
+    input json sample
+    <pre>
+      {
+        "users" : ["hoo", "bar", "you"]
+      }
+    </pre>
+
+  </p>
+</script>

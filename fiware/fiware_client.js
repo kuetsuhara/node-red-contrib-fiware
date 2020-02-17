@@ -4,6 +4,7 @@ const APPLICATIONS_PATH = '/applications'
 const ORGANIZATIONS_PATH = '/organizations'
 const ROLE_PATH = '/roles'
 const ADD_ROLE_PATH = '/organization_roles/member'
+const USERS_PATH = '/users'
 
 module.exports = class FiwareClient {
   constructor(server, id, password) {
@@ -85,7 +86,7 @@ module.exports = class FiwareClient {
   }
 
   getMembers(token, orgId, callback) {
-    var url = this.server + ORGANIZATIONS_PATH + '/' + orgId + '/users'
+    var url = this.server + ORGANIZATIONS_PATH + '/' + orgId + USERS_PATH
     var headers = {
       'Content-Type': 'application/json',
       'X-Auth-token': token
@@ -183,6 +184,42 @@ module.exports = class FiwareClient {
         return callback(error)
       }
       return callback(null, body)
+    })
+  }
+
+  patchUserEnabled(server, token, userId) {
+    return new Promise(function (resolve, reject) {
+
+      var url = server + USERS_PATH + '/' + userId
+      var headers = {
+        'Content-Type': 'application/json',
+        'X-Auth-token': token
+      }
+
+      var data = {
+        'user': {
+          'enabled': true
+        }
+      }
+
+      var option = {
+        url: url,
+        method: 'PATCH',
+        json: data,
+        headers: headers,
+      }
+
+      console.log("Patch!!", option)
+
+      request(option, function (error, response, body) {
+        if (error) {
+          reject(error)
+          return
+        } else {
+          resolve(body)
+        }
+      })
+
     })
   }
 }
