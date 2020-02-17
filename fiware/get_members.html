@@ -1,0 +1,39 @@
+<script type="text/javascript">
+  RED.nodes.registerType('GetMembers', {
+    category: 'fiware',
+    color: '#ffffff',
+    defaults: {
+      name: { value: "" },
+      orgid: { value: "" },
+      login: { type: "fiware-credentials" },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "arrow-in.png",
+    label: function () {
+      return this.name || "get members";
+    },
+    paletteLabel: "get members"
+  });
+</script>
+
+<script type="text/x-red" data-template-name="GetMembers">
+  <div class="form-row">
+    <label for="node-input-login"><i class="fa fa-user"></i> Log in as</label>
+    <input type="text" id="node-input-login">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-orgid"><i class="fa fa-tag"></i> Org ID</label>
+    <input type="text" id="node-input-orgid" placeholder="Org ID">
+  </div>
+
+  <div class="form-row">
+      <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="GetMembers">
+  <p></p>
+</script>
