@@ -40,11 +40,16 @@ module.exports = function (RED) {
           for (let index = 0; index < msg.payload.users.length; index++) {
             console.log(msg.payload.users[index])
             users.push(cl.patchUserEnabled(node.login.server, token, msg.payload.users[index]))
-
           }
 
           Promise.all(users).then(function (values) {
-            console.log("VALUES", values);
+            node.status({ fill: 'green', shape: 'dot', text: 'success' })
+            msg.payload = values
+            node.send(msg)
+            setTimeout(function () {
+              node.status({})
+            }, 1000)
+
           }).catch(function () {
             console.log("error");
           })
