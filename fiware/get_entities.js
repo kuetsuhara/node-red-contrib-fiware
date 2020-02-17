@@ -34,7 +34,7 @@ module.exports = function (RED) {
           node.status({ fill: 'red', shape: 'dot', text: 'get token error' })
           console.log("get token error!", err)
         } else {
-          cl.getEntities(token, config.eid, config.option, config.query, function (err, success) {
+          cl.getEntities(token, config.eid, config.option, config.query, config.etype, function (err, success) {
             if (err) {
               console.log("get entity error!", err)
               node.status({ fill: 'red', shape: 'dot', text: 'get entity error' })

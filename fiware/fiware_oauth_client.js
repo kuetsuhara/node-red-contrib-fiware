@@ -49,27 +49,47 @@ module.exports = class FiwareOauthClient {
   }
 
 
-  getEntities(token, entity_id, options, query, callback){
+  getEntities(token, entity_id, options, query, type, callback){
     var url = this.server + ':' + this.keyrock_port + ENTITIES_PATH
 
     // if have query, exclude entity id
     if(query){
       url += '?'
+      // options ==========
       if(options){
         url += 'options=' + options
       }
+      // type ============
+      if(type){
+        if(url.slice(-1) != '?'){
+          url += '&'
+        }
+        url += 'type=' + type
+      }
+      // query ===========
       if(url.slice(-1) != '?'){
         url += '&'
       }
       url += 'q=' + encodeURIComponent(query)
+
     }else{
+      // id ==========
       if(entity_id){
         url += '/' + entity_id
       }
+      url += '?'
       if(options){
-        url += '?options=' + options
-      }  
+        url += 'options=' + options
+      }
+      if(type){
+        if(url.slice(-1) != '?'){
+          url += '&'
+        }
+        url += 'type=' + type
+      }
     }
+
+    console.log(url)
 
     var headers = {
       'X-Auth-Token': token

@@ -5,6 +5,7 @@
     defaults: {
       name: { value: "" },
       eid: { value: "" },
+      etype: { value: "" },
       option: { value: "" },
       query: { value: "" },
       login: { type: "fiware-oauth-credentials" },
@@ -13,8 +14,9 @@
     outputs: 1,
     icon: "arrow-in.png",
     label: function () {
-      return this.name || "GetEntities";
-    }
+      return this.name || "get entities";
+    },
+    paletteLabel: "get entities"
   });
 </script>
 
@@ -30,9 +32,14 @@
   </div>
 
   <div class="form-row">
+    <label for="node-input-etype"><i class="fa fa-edit"></i> Type</label>
+    <input type="text" id="node-input-etype" placeholder="type">
+  </div>
+
+  <div class="form-row">
     <label for="node-input-option"><i class="fa fa-edit"></i> Option</label>
     <input type="text" id="node-input-option" placeholder="option">
-  </div>  
+  </div>
 
   <div class="form-row">
     <label for="node-input-query"><i class="fa fa-edit"></i> Query</label>

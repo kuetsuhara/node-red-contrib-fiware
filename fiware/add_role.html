@@ -1,20 +1,21 @@
 <script type="text/javascript">
-  RED.nodes.registerType('AddRole',{
-      category: 'fiware',
-      color: '#b0c4de',
-      defaults: {
-          name: {value:""},
-          login: { type: "fiware-credentials" },
-          appid: { value: "", required: true },
-          orgid: { value: "", required: true },
-          roleid: { value: "", required: true },
-      },
-      inputs:1,
-      outputs:1,
-      icon: "arrow-in.png",
-      label: function() {
-          return this.name||"AddRole";
-      }
+  RED.nodes.registerType('AddRole', {
+    category: 'fiware',
+    color: '#b0c4de',
+    defaults: {
+      name: { value: "" },
+      login: { type: "fiware-credentials" },
+      appid: { value: "", required: true },
+      orgid: { value: "", required: true },
+      roleid: { value: "", required: true },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "arrow-in.png",
+    label: function () {
+      return this.name || "add role";
+    },
+    paletteLabel: "add role"
   });
 </script>
 
