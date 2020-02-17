@@ -1,17 +1,18 @@
 <script type="text/javascript">
-  RED.nodes.registerType('GetApps',{
-      category: 'fiware',
-      color: '#ffffff',
-      defaults: {
-          name: {value:""},
-          login: { type: "fiware-credentials" },
-      },
-      inputs:1,
-      outputs:1,
-      icon: "arrow-in.png",
-      label: function() {
-          return this.name||"GetApps";
-      }
+  RED.nodes.registerType('GetApps', {
+    category: 'fiware',
+    color: '#ffffff',
+    defaults: {
+      name: { value: "" },
+      login: { type: "fiware-credentials" },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "arrow-in.png",
+    label: function () {
+      return this.name || "get apps";
+    },
+    paletteLabel: "get apps"
   });
 </script>
 

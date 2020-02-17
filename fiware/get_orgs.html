@@ -1,17 +1,18 @@
 <script type="text/javascript">
-  RED.nodes.registerType('GetOrgs',{
-      category: 'fiware',
-      color: '#ffffff',
-      defaults: {
-          name: {value:""},
-          login: { type: "fiware-credentials" },
-      },
-      inputs:1,
-      outputs:1,
-      icon: "arrow-in.png",
-      label: function() {
-          return this.name||"GetOrgs";
-      }
+  RED.nodes.registerType('GetOrgs', {
+    category: 'fiware',
+    color: '#ffffff',
+    defaults: {
+      name: { value: "" },
+      login: { type: "fiware-credentials" },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "arrow-in.png",
+    label: function () {
+      return this.name || "get orgs";
+    },
+    paletteLabel: "get orgs"
   });
 </script>
 
