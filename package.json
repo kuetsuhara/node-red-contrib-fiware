@@ -21,6 +21,7 @@
       "fiware": "./fiware/fiware.js",
       "getApps": "./fiware/get_apps.js",
       "getOrgs": "./fiware/get_orgs.js",
+      "getMembers": "./fiware/get_members.js",
       "getRoles": "./fiware/get_roles.js",
       "getEntities": "./fiware/get_entities.js",
       "addRole": "./fiware/add_role.js",
