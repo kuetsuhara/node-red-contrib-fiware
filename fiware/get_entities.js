@@ -38,8 +38,7 @@ module.exports = function (RED) {
           let options
           let query
           let etype
-          if (msg.payload) {
-            console.log("msg.payload", msg.payload)
+          if (config.action == "json") {
             eid = msg.payload.entity_id
             options = msg.payload.options
             query = msg.payload.query
