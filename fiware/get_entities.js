@@ -34,7 +34,24 @@ module.exports = function (RED) {
           node.status({ fill: 'red', shape: 'dot', text: 'get token error' })
           console.log("get token error!", err)
         } else {
-          cl.getEntities(token, config.eid, config.option, config.query, config.etype, function (err, success) {
+          let eid
+          let options
+          let query
+          let etype
+          if (msg.payload) {
+            console.log("msg.payload", msg.payload)
+            eid = msg.payload.entity_id
+            options = msg.payload.options
+            query = msg.payload.query
+            etype = msg.payload.etype
+          } else {
+            eid = config.eid
+            options = config.options
+            query = config.query
+            etype = config.etype
+          }
+
+          cl.getEntities(token, eid, options, query, etype, function (err, success) {
             if (err) {
               console.log("get entity error!", err)
               node.status({ fill: 'red', shape: 'dot', text: 'get entity error' })
