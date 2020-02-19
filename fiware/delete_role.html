@@ -1,7 +1,7 @@
 <script type="text/javascript">
   RED.nodes.registerType('DeleteRole', {
     category: 'fiware',
-    color: '#b0c4de',
+    color: '#66FF99',
     defaults: {
       name: { value: "" },
       login: { type: "fiware-credentials" },
@@ -11,7 +11,7 @@
     },
     inputs: 1,
     outputs: 1,
-    icon: "arrow-in.png",
+    icon: "fiware.png",
     label: function () {
       return this.name || "delete role";
     },
